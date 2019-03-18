@@ -1,4 +1,4 @@
-package crud.habse;
+package crud.hbase;
 
 /**
  * Hello world!
