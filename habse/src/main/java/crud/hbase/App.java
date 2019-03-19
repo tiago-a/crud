@@ -7,6 +7,7 @@ import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Connection;
 import org.apache.hadoop.hbase.client.ConnectionFactory;
+import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.ResultScanner;
 import org.apache.hadoop.hbase.client.Scan;
@@ -127,11 +128,11 @@ public class App
 		try (
 //				Connection connection = ConnectionFactory.createConnection(conf, user);
 				Connection connection = ConnectionFactory.createConnection(conf);
-				Table table = connection.getTable(TableName.valueOf(Bytes.toBytes("relacionamento:timelineSCAN")))) {
+				Table table = connection.getTable(TableName.valueOf(Bytes.toBytes("relacionamento:teste")))) {
 			System.out.println("daasdasddadas");
 //			HTableDescriptor tableDescriptor = table.getTableDescriptor();
 //			System.out.println("tableDescriptor: " + tableDescriptor.toString());
-//			Put put = new Put("123".getBytes());
+			Put put = new Put("henrique".getBytes());
 			
 //			byte[] data = new byte[100];
 //			String username = "rafael";
@@ -139,22 +140,21 @@ public class App
 //			System.out.println("username_byte length: " + username_byte.length);
 //			System.arraycopy(username_byte, 0, data, 45, username_byte.length);
 //			Put put = new Put(data, 45, username_byte.length);
-//			put.addColumn("cf".getBytes(), "col".getBytes(), "100e21e12e1200".getBytes());
+			put.addColumn("cf".getBytes(), "col".getBytes(), "100e21e12e1200".getBytes());
 //			
-//			table.put(put);
-			
+			table.put(put);
 //			Get get = new Get("relacionamento:transacao".getBytes());
 //			Result result = new Result();
 //			result = table.get(get);
 //			
 //			System.out.println("result: " + result.toString());
 			
-			Scan scan = new Scan();
-			ResultScanner resultScanner = table.getScanner(scan);
-			for (Result result : resultScanner) {
-				LOGGER.info("result: " + result.toString());
-//				System.out.println("Rresult: " + result.toString());
-			}
+//			Scan scan = new Scan();
+//			ResultScanner resultScanner = table.getScanner(scan);
+//			for (Result result : resultScanner) {
+//				LOGGER.info("result: " + result.toString());
+////				System.out.println("Rresult: " + result.toString());
+//			}
 			
 			
 //			while(resultScanner.iterator().hasNext()) {
