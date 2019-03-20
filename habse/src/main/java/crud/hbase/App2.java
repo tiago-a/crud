@@ -16,7 +16,8 @@ public class App2 {
 
 	public static void main(String[] args) {
 		try {
-			XmlConfiguration siteConf = ConfigParser.siteConf("dev", "hbase-site.xml");
+//			XmlConfiguration siteConf = ConfigParser.siteConf("dev", "hbase-site.xml");
+			XmlConfiguration siteConf = ConfigParser.siteConf("dev", "dummy-file.xml");
 			Configuration setConf = ConfigParser.setConf(siteConf);
 			LOGGER.debug(setConf.toString());
 

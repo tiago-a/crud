@@ -42,7 +42,12 @@ public class ConfigParser {
 	
 	public static Configuration setConf(XmlConfiguration xml) {
 		Configuration conf = HBaseConfiguration.create();
+		
 		List<XmlProperty> properties = xml.getProperties();
+		if (properties == null) {
+			LOGGER.warn("A default conf was returned");
+			return conf;
+		}
 		for (XmlProperty property : properties) {
             if (property.getName() != null || property.getValue() != null) {
                 conf.set(property.getName(), property.getValue());
