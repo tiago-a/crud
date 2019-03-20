@@ -44,7 +44,7 @@ public class App2 {
 			e1.printStackTrace();
 		}
 		try (Connection connection = ConnectionFactory.createConnection(conf);
-				Table table = connection.getTable(TableName.valueOf(Bytes.toBytes("relacionamento:timelineSCAN")))) {
+				Table table = connection.getTable(TableName.valueOf(Bytes.toBytes("relacionamento:teste")))) {
 			HTableDescriptor tableDescriptor = table.getTableDescriptor();
 			LOGGER.debug("Table info: " + tableDescriptor);
 		} catch (IOException e) {
