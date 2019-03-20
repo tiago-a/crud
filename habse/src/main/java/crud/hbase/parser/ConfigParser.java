@@ -40,8 +40,8 @@ public class ConfigParser {
 		return xml;
 	}
 	
-	public static Configuration setConf(XmlConfiguration xml) {
-		Configuration conf = HBaseConfiguration.create();
+	public static Configuration setConf(Configuration conf, XmlConfiguration xml) {
+//		Configuration conf = HBaseConfiguration.create();
 		
 		List<XmlProperty> properties = xml.getProperties();
 		if (properties == null) {
@@ -50,6 +50,7 @@ public class ConfigParser {
 		}
 		for (XmlProperty property : properties) {
             if (property.getName() != null || property.getValue() != null) {
+            	LOGGER.debug("conf key: " + property.getName() + " value: " + property.getValue());
                 conf.set(property.getName(), property.getValue());
             }
 
